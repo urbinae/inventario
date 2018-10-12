@@ -17,7 +17,9 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name', 100);
             $table->string('slug');//nombre corto
-            $table->boolean('visible');
+            $table->boolean('visible');//ocultar o mostrar
+            $table->double('sale_price'); //precio de venta
+            $table->double('purchase_price'); //precio de compra
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')
                   ->references('id')

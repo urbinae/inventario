@@ -24,7 +24,29 @@ class Product extends Model
         return $this->belongsTo('App\Category', 'category_id');
     }
 
+    /**
+        Relación con el almacén
+    **/
     public function stock(){
         return $this->hasOne('App\Stock', 'product_id', 'id');
+    }
+
+    /**
+    Relación con lote de productos
+    **/
+    public function lote_products()
+    {
+        return $this->hasMany('App\LoteProduct');
+    }
+
+    /**
+     * Relación con lote.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function lote()
+    {
+        return $this->belongsToMany('App\Lote', 'lotes_products', 'product_id', 'lote_id');
+
     }
 }

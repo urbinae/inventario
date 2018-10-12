@@ -73,6 +73,11 @@
                                         <a class="nav-link" href="{{ route('products.index') }}">Productos</a>
                                     </li>
                                     @endcan
+                                    @can('lotes.index')
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('lotes') }}">Lotes</a>
+                                    </li>
+                                    @endcan
                                 </ul>
                         </li>
                         <li class="dropdown">

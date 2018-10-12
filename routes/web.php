@@ -80,4 +80,9 @@ Route::middleware(['auth'])->group(function (){
 
 	//Almacén
 	Route::resource('store', 'StockController');
+
+	//Rutas solo para vistas integradas con react
+	Route::get('viewlotes', 'ViewController@viewlotes')->name('lotes');
+
+	Route::resource('lotes', 'LoteController');
 });
