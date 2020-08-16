@@ -6,9 +6,9 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Categorías
-                    @can('categories.create')
-                    <a href="{{route('categories.create')}}" class="btn btn-primary btn-sm pull-right">Crear</a>
+                    Lote
+                    @can('lotes.create')
+                    <a href="{{route('lotes.create')}}" class="btn btn-primary btn-sm pull-right">Crear</a>
                     @endcan
                 </div>
 
@@ -23,27 +23,27 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($categories as $category)
+                                @foreach($lotes as $lote)
                                 <tr>
-                                    <td>{{$category->id}}</td>
-                                    <td>{{$category->name}}</td>
+                                    <td>{{$lote->id}}</td>
+                                    <td>{{$lote->name}}</td>
                                     <td>
-                                        @can('categories.show')
-                                        <a href="{{route('categories.show', $category->id)}}" class="btn btn-sm btn-default">
+                                        @can('lotes.show')
+                                        <a href="{{route('lotes.show', $lote->id)}}" class="btn btn-sm btn-default">
                                             Ver
                                         </a>
                                         @endcan
                                     </td>
                                     <td>
-                                        @can('categories.edit')
-                                        <a href="{{route('categories.edit', $category->id)}}" class="btn btn-sm btn-default">
+                                        @can('lotes.edit')
+                                        <a href="{{route('lotes.edit', $lote->id)}}" class="btn btn-sm btn-default">
                                             Editar
                                         </a>
                                         @endcan
                                     </td>
                                     <td>
-                                        @can('categories.destroy')
-                                        {!! Form::open(['route' => ['categories.destroy', $category->id], 'method' => 'DELETE']) !!}
+                                        @can('lotes.destroy')
+                                        {!! Form::open(['route' => ['lotes.destroy', $lote->id], 'method' => 'DELETE']) !!}
                                         <button class="btn btn-sm btn-danger">Eliminar</button>
                                         {!! Form::close() !!}
                                         @endcan
@@ -53,7 +53,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        {{$categories->render()}}
+                        {{$lotes->render()}}
                     </div>
                 </div>
             </div>

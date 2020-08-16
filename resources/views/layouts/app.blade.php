@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,11 +10,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!--<title>{{ config('app.name', 'Laravel') }}</title>-->
-    <title>Fenix</title>
+    <title>COPUSD</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
+
 <body>
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
@@ -30,14 +32,14 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        FENIX
+                        COPUSD
                     </a>
                 </div>
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->                    
+                    <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         @guest
-                        
+
                         @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>Configuración<span class="caret"></span>
@@ -61,35 +63,39 @@
                             </a>
 
                             <ul class="dropdown-menu">
-                                    @can('categories.index')
-                                    <li>
-                                        <a href="{{ route('categories.index') }}">
-                                            Categorias
-                                        </a>
-                                    </li>
-                                    @endcan
-                                    @can('products.index')
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('products.index') }}">Productos</a>
-                                    </li>
-                                    @endcan
-                                </ul>
+                                @can('categories.index')
+                                <li>
+                                    <a href="{{ route('categories.index') }}">
+                                        Categorias
+                                    </a>
+                                </li>
+                                @endcan
+                                @can('products.index')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('products.index') }}">Productos</a>
+                                </li>
+                                @endcan
+                            </ul>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>Compras<span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu">
-                                    @can('providers.index')
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('providers.index') }}">Proveedores</a>
-                                    </li>
-                                    @endcan
-                                    @can('purchases.index')
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('purchases.index') }}">Entradas</a>
-                                    </li>
-                                    @endcan
+                                @can('providers.index')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('providers.index') }}">Proveedores</a>
+                                </li>
+                                @endcan
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('lotes.index') }}">Lotes</a>
+                                </li>
+                                @can('purchases.index')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('purchases.index') }}">Entradas</a>
+                                </li>
+                                @endcan
+
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -98,44 +104,43 @@
 
                             <ul class="dropdown-menu">
                                 @can('store.in.index')
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('store.index') }}">Materia Prima</a>
-                                    </li>
-                                    @endcan
-                                    @can('purchases.index')
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Productos Terminados</a>
-                                    </li>
-                                    @endcan
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('store.index') }}">Materia Prima</a>
+                                </li>
+                                @endcan
+                                @can('purchases.index')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Productos Terminados</a>
+                                </li>
+                                @endcan
                             </ul>
-                        </li>                                
-                        @endguest                        
+                        </li>
+                        @endguest
                     </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a href="{{ route('login') }}">Iniciar</a></li>
+                        <li><a href="{{ route('login') }}">Iniciar</a></li>
                         @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
 
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Salir
-                                        </a>
+                                        Salir
+                                    </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
                         @endguest
                     </ul>
                 </div>
@@ -158,4 +163,5 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
+
 </html>

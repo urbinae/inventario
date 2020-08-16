@@ -1,4 +1,10 @@
 <div class="form-group">
+	<label>Lote</label>
+	<div class="input-field">
+		{!! Form::select('lote_id', $lotes, null, ['class' => 'form-control']) !!}
+	</div>
+</div>
+<div class="form-group">
 	<label>Producto</label>
 	<div class="input-field">
 		{!! Form::select('product_id', $products, null, ['class' => 'form-control']) !!}

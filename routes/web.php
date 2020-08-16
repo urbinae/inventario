@@ -53,6 +53,9 @@ Route::middleware(['auth'])->group(function (){
 	//Categorias
 	Route::resource('categories', 'CategoryController');	
 
+	//Categorias
+	Route::resource('lotes', 'LoteController');
+
 	//Usuarios
 	Route::get('users', 'UserController@index')->name('users.index')
 			->middleware('permission:users.index');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Lote;
 use App\Purchase;
 use App\Product;
 use App\Provider;
@@ -30,7 +31,8 @@ class PurchaseController extends Controller
     {
         $products = Product::pluck('name', 'id');
         $providers = Provider::pluck('name', 'id');
-        return view('purchases.create', compact('products', 'providers'));
+        $lotes = Lote::pluck('name', 'id');
+        return view('purchases.create', compact('products', 'providers', 'lotes'));
     }
 
     /**

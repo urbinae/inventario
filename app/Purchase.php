@@ -23,4 +23,8 @@ class Purchase extends Model
     public function provider(){
         return $this->belongsTo('App\Provider', 'provider_id');
     }
+
+    public function lote(){
+        return $this->belongsTo('App\Lote', 'lote_id');
+    }
 }
