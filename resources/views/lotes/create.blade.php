@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Lote</div>
+                <div class="panel-heading">Lote o Flete</div>
                 <div class="panel-body">
                     {!! Form::open(array('route' => 'lotes.store','method'=>'POST')) !!}
                         @include('lotes.partials.form')

@@ -13,7 +13,7 @@ class Purchase extends Model
      * @var array
      */
     protected $fillable = [
-        'product_id', 'provider_id', 'price', 'cant', 'unity', 'cost', 'stock'
+        'product_id', 'provider_id', 'lote_id', 'price', 'cant', 'unity', 'cost', 'stock'
     ];
 
     public function product(){

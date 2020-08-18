@@ -6,7 +6,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Lote
-                    <a href="{{ url()->previous() }}" class="btn btn-default btn-sm pull-right">Volver</a>
+                    <a href="{{ route('lotes.index') }}" class="btn btn-default btn-sm pull-right">Listar</a>
                 </div>
                 <div class="panel-body">
                     {!! Form::model($lote, ['route' => ['lotes.update', $lote->id], 'method'=>'PUT']) !!}

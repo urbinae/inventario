@@ -6,7 +6,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Lote
+                    Lotes
                     @can('lotes.create')
                     <a href="{{route('lotes.create')}}" class="btn btn-primary btn-sm pull-right">Crear</a>
                     @endcan
@@ -19,7 +19,8 @@
                                 <tr>
                                     <th width="10px">ID</th>
                                     <th>Nombre</th>
-                                    <th colspan="3">&nbsp;</th>
+                                    <th>Estado</th>
+                                    <th colspan="2">&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -27,6 +28,12 @@
                                 <tr>
                                     <td>{{$lote->id}}</td>
                                     <td>{{$lote->name}}</td>
+                                    @if($lote->status)
+                                        <td>Activo</td>
+                                    @else
+                                        <td>Inactivo</td>
+                                    @endif
+                                   
                                     <td>
                                         @can('lotes.show')
                                         <a href="{{route('lotes.show', $lote->id)}}" class="btn btn-sm btn-default">
@@ -40,6 +47,11 @@
                                             Editar
                                         </a>
                                         @endcan
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-sm btn-default">
+                                            Ver productos
+                                        </a>
                                     </td>
                                     <td>
                                         @can('lotes.destroy')

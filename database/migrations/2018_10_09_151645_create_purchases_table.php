@@ -17,14 +17,19 @@ class CreatePurchasesTable extends Migration
             $table->increments('id');
             $table->integer('product_id')->unsigned();
             $table->foreign('product_id')
-                  ->references('id')
-                  ->on('products')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('products')
+                ->onDelete('cascade');
             $table->integer('provider_id')->unsigned();
             $table->foreign('provider_id')
-                  ->references('id')
-                  ->on('providers')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('providers')
+                ->onDelete('cascade');
+            $table->integer('lote_id')->unsigned();
+            $table->foreign('lote_id')
+                ->references('id')
+                ->on('lotes')
+                ->onDelete('cascade');
             $table->double('price'); // precio por unidad de medida
             $table->string('cant');  // cantidad
             $table->string('unity'); // unidad de medida: kg, cajas, mts...

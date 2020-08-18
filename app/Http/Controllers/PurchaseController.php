@@ -19,7 +19,8 @@ class PurchaseController extends Controller
     public function index()
     {
         $purchases = Purchase::paginate();
-        return view('purchases.index', compact('purchases'));
+        $lotes = Lote::paginate();
+        return view('purchases.index', compact('purchases', 'lotes'));
     }
 
     /**
@@ -46,6 +47,7 @@ class PurchaseController extends Controller
         $purchase = new Purchase();        
         $purchase->product_id = $request->input('product_id');
         $purchase->provider_id = $request->input('provider_id');
+        $purchase->lote_id = $request->input('lote_id');
         $purchase->price = $request->input('price');
         $purchase->cant = $request->input('cant');
         $purchase->cost = (double)$request->get('cant') * (double)$request->get('price');

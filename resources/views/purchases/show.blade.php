@@ -9,8 +9,8 @@
                 <div class="panel-body">
                     <p><strong>Producto </strong> {{ $purchase->product->name }}</p>
                     <p><strong>Proveedor </strong> {{$purchase->provider->name}} </p>
-                    <p><strong>Precio/{{ $purchase->unity }}  </strong> {{ $purchase->price }}</p>
-                    <p><strong>Cantidad </strong> {{ $purchase->cant }}</p>
+                    <p><strong>Precio Unitario </strong> {{ $purchase->price }}</p>
+                    <p><strong>Cantidad </strong> {{ $purchase->cant }} {{ $purchase->unity }} </p>
                     <p><strong>Total </strong> {{ $purchase->cost }}</p>
                     <p><strong>Fecha de ingreso </strong> {{ $purchase->created_at }}</p>
                     <p><h2><strong>En Almacén </strong> {{ $purchase->product->stock->stock }} {{$purchase->unity}}</h2></p>

@@ -15,8 +15,17 @@ class CreateLotesTable extends Migration
     {
         Schema::create('lotes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 50)->unique();//Nombre del tipo de producto
+            $table->string('name', 50)->unique(); //Nombre del tipo de producto
             $table->string('slug');
+            $table->boolean('status');
+            // $table->float('costo_fijo_bs');
+            // $table->float('costo_variable_bs');
+
+            $table->float('costo_fijo_usd');
+            $table->float('costo_variable_usd');
+
+            // $table->float('costo_fijo_cop');
+            // $table->float('costo_variable_cop');
             $table->timestamps();
         });
     }

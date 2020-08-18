@@ -49,6 +49,13 @@ class LoteController extends Controller
     {
         $lote = new Lote();
         $lote->name = $request->input('name');
+        $lote->costo_fijo_usd = $request->input('costo_fijo_usd');
+        $lote->costo_variable_usd = $request->input('costo_variable_usd');
+        // $lote->costo_fijo_bs = 0;//$request->input('costo_fijo_bs');
+        // $lote->costo_variable_bs = 0;//$request->input('costo_fijo_bs');
+        // $lote->costo_fijo_cop = 0;//$request->input('costo_fijo_cop');
+        // $lote->costo_variable_cop = 0;//$request->input('costo_fijo_cop');
+        $lote->status = 1;
         $lote->slug = $this->create_slug($request->input('name'));
         
         if($lote->save()){  
