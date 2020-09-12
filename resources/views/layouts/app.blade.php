@@ -41,10 +41,10 @@
                         @guest
 
                         @else
+                        @can('config')
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>Configuración<span class="caret"></span>
                             </a>
-
                             <ul class="dropdown-menu">
                                 @can('documents.index')
                                 <li class="nav-item">
@@ -58,6 +58,7 @@
                                 @endcan
                             </ul>
                         </li>
+                        @endcan
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>Productos<span class="caret"></span>
                             </a>
@@ -72,11 +73,12 @@
                                 @endcan
                                 @can('products.index')
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('products.index') }}">Productos</a>
+                                    <a class="nav-link" href="{{ route('products.index') }}">Lista Productos</a>
                                 </li>
                                 @endcan
                             </ul>
                         </li>
+                        @can('purchases.index')
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>Compras<span class="caret"></span>
                             </a>
@@ -87,9 +89,11 @@
                                     <a class="nav-link" href="{{ route('providers.index') }}">Proveedores</a>
                                 </li>
                                 @endcan
+                                @can('lotes.index')
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('lotes.index') }}">Lotes</a>
                                 </li>
+                                @endcan
                                 @can('purchases.index')
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('purchases.index') }}">Entradas</a>
@@ -98,23 +102,20 @@
 
                             </ul>
                         </li>
+                        @endcan
+                        @can('store.index')
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>Almacén<span class="caret"></span>
                             </a>
-
                             <ul class="dropdown-menu">
-                                @can('store.in.index')
+                                @can('store.index')
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('store.index') }}">Materia Prima</a>
                                 </li>
-                                @endcan
-                                @can('purchases.index')
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Productos Terminados</a>
-                                </li>
-                                @endcan
+                                @endcan                                
                             </ul>
                         </li>
+                        @endcan
                         @endguest
                     </ul>
                     <!-- Right Side Of Navbar -->

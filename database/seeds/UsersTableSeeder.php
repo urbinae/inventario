@@ -15,16 +15,27 @@ class UsersTableSeeder extends Seeder
     {
         //factory(App\User::class, 20)->create();
 
-        Role::create([
-        	'name' => 'Admin',
-        	'slug' => 'admin',
-        	'special' => 'all-access'
-        ]);
+        // Role::create([
+        // 	'name' => 'Admin',
+        // 	'slug' => 'admin',
+        // 	'special' => 'all-access'
+        // ]);
+        // $data = array(
+        //     [
+        //         'name'      => 'Admin', 
+        //         'email'     => 'admin@mail.com', 
+        //         'username'  => 'admin',
+        //         'password'  => \Hash::make('123456'),
+        //         'created_at'=> new DateTime,
+        //         'updated_at'=> new DateTime
+        //     ],
+        // );
+        // User::insert($data);
         $data = array(
             [
-                'name'      => 'Admin', 
-                'email'     => 'admin@mail.com', 
-                'username'  => 'admin',
+                'name'      => 'Vendedor', 
+                'email'     => 'vendedor@mail.com', 
+                'username'  => 'vendedor',
                 'password'  => \Hash::make('123456'),
                 'created_at'=> new DateTime,
                 'updated_at'=> new DateTime

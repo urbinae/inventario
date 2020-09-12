@@ -86,6 +86,13 @@ class PermissionsTableSeeder extends Seeder
         	'name' => 'Eliminar producto',
         	'slug' => 'products.destroy',
         	'description' => 'Eliminar la informacion de un producto del sistema'
+		]);
+		
+		//ventas
+		Permission::create([
+        	'name' => 'Ventas',
+        	'slug' => 'products.index',
+        	'description' => 'Realizar ventas'
         ]);
     }
 }

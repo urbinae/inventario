@@ -13,8 +13,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    @can('admin')
                     Administre su INVENTARIO 
+                    @endcan
                 </div>
             </div>
         </div>
