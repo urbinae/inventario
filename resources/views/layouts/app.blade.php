@@ -13,7 +13,17 @@
     <title>COPUSD</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="css/adminlte.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/plugins/fontawesome-free/css/all.min.css">
+
 </head>
 
 <body>
@@ -162,7 +172,20 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <!-- <script src="{{ asset('js/app.js') }}"></script> -->
+        <!-- jQuery -->
+        <script src="js/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="js/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <!-- <script>
+        $.widget.bridge('uibutton', $.ui.button)
+
+    </script> -->
+    <!-- Bootstrap 4 -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="js/adminlte.js"></script>
 </body>
 
 </html>
