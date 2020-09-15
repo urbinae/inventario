@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
@@ -15,177 +15,35 @@
     <!-- Styles -->
     <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="css/adminlte.css">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <link rel="stylesheet" href="css/plugins/fontawesome-free/css/all.min.css">
+    @include('layouts.css')
 
 </head>
 
-<body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper" id="app">
+        @include('layouts.navbar')
+        @include('layouts.aside')
+
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            @if(session('info'))
             <div class="container">
-                <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        COPUSD
-                    </a>
-                </div>
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        @guest
-
-                        @else
-                        @can('config')
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>Configuración<span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                @can('documents.index')
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('documents.index') }}">Tipos de Documento</a>
-                                </li>
-                                @endcan
-                                @can('iva.index')
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">IVA</a>
-                                </li>
-                                @endcan
-                            </ul>
-                        </li>
-                        @endcan
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>Productos<span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu">
-                                @can('categories.index')
-                                <li>
-                                    <a href="{{ route('categories.index') }}">
-                                        Categorias
-                                    </a>
-                                </li>
-                                @endcan
-                                @can('products.index')
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('products.index') }}">Lista Productos</a>
-                                </li>
-                                @endcan
-                            </ul>
-                        </li>
-                        @can('purchases.index')
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>Compras<span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu">
-                                @can('providers.index')
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('providers.index') }}">Proveedores</a>
-                                </li>
-                                @endcan
-                                @can('lotes.index')
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('lotes.index') }}">Lotes</a>
-                                </li>
-                                @endcan
-                                @can('purchases.index')
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('purchases.index') }}">Entradas</a>
-                                </li>
-                                @endcan
-
-                            </ul>
-                        </li>
-                        @endcan
-                        @can('store.index')
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>Almacén<span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                @can('store.index')
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('store.index') }}">Materia Prima</a>
-                                </li>
-                                @endcan                                
-                            </ul>
-                        </li>
-                        @endcan
-                        @endguest
-                    </ul>
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @guest
-                        <li><a href="{{ route('login') }}">Iniciar</a></li>
-                        @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        Salir
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        @if(session('info'))
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <div class="alert alert-success">
-                        {{ session('info') }}
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="alert alert-success">
+                            {{ session('info') }}
+                        </div>
                     </div>
                 </div>
             </div>
+            @endif
+            @yield('content')
         </div>
-        @endif
-        @yield('content')
+        @include('layouts.footer')
+
     </div>
-
-    <!-- Scripts -->
-    <!-- <script src="{{ asset('js/app.js') }}"></script> -->
-        <!-- jQuery -->
-        <script src="js/jquery.min.js"></script>
-    <!-- jQuery UI 1.11.4 -->
-    <script src="js/jquery-ui.min.js"></script>
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-    <!-- <script>
-        $.widget.bridge('uibutton', $.ui.button)
-
-    </script> -->
-    <!-- Bootstrap 4 -->
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="js/adminlte.js"></script>
+    @include('layouts.scripts')
 </body>
 
 </html>

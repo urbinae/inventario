@@ -1,12 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Modificar Categoría</h1>
+            </div>
+
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div class="content">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Categoría
-                    <a href="{{route('categories.index')}}" class="btn btn-default btn-sm pull-right">Listar</a>
+                    <a href="{{route('categories.index')}}" class="btn btn-success btn-sm pull-right">Listar</a>
                 </div>
                 <div class="panel-body">
                     {!! Form::model($category, ['route' => ['categories.update', $category->id], 'method'=>'PUT']) !!}

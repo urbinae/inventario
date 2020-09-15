@@ -1,50 +1,54 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Categorias</h1>
+            </div>
+
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Categorías
                     @can('categories.create')
-                    <a href="{{route('categories.create')}}" class="btn btn-primary btn-sm pull-right">Crear</a>
+                    <a href="{{route('categories.create')}}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp;Agregar</a>
                     @endcan
                 </div>
 
                 <div class="panel-body ">
                     <div class="table-responsive">
-                        <table class="table table-striped table-hover">
+                        <table class="table table-striped table-hover" id="categories-table">
                             <thead>
                                 <tr>
-                                    <th width="10px">ID</th>
                                     <th>Nombre</th>
-                                    <th colspan="3">&nbsp;</th>
+                                    <th >&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($categories as $category)
                                 <tr>
-                                    <td>{{$category->id}}</td>
                                     <td>{{$category->name}}</td>
                                     <td>
-                                        @can('categories.show')
-                                        <a href="{{route('categories.show', $category->id)}}" class="btn btn-sm btn-default">
-                                            Ver
-                                        </a>
-                                        @endcan
-                                    </td>
-                                    <td>
                                         @can('categories.edit')
-                                        <a href="{{route('categories.edit', $category->id)}}" class="btn btn-sm btn-default">
-                                            Editar
+                                        <a href="{{route('categories.edit', $category->id)}}" title="Modificar" class="btn btn-sm btn-warning">
+                                            <i class="fa fa-edit"></i>
                                         </a>
                                         @endcan
                                     </td>
                                     <td>
                                         @can('categories.destroy')
                                         {!! Form::open(['route' => ['categories.destroy', $category->id], 'method' => 'DELETE']) !!}
-                                        <button class="btn btn-sm btn-danger">Eliminar</button>
+                                        <button class="btn btn-sm btn-danger" title="Eliminar"><i class="fa fa-trash"></i></button>
                                         {!! Form::close() !!}
                                         @endcan
                                     </td>
@@ -59,5 +63,9 @@
             </div>
         </div>
     </div>
+</section>
+
+<div class="container">
+
 </div>
 @endsection
