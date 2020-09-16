@@ -17,7 +17,7 @@
 <!-- Main content -->
 <section class="content">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-5 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     @can('categories.create')
@@ -31,21 +31,22 @@
                             <thead>
                                 <tr>
                                     <th>Nombre</th>
-                                    <th >&nbsp;</th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($categories as $category)
                                 <tr>
                                     <td>{{$category->name}}</td>
-                                    <td>
+                                    <td width="10px">
                                         @can('categories.edit')
                                         <a href="{{route('categories.edit', $category->id)}}" title="Modificar" class="btn btn-sm btn-warning">
                                             <i class="fa fa-edit"></i>
                                         </a>
                                         @endcan
                                     </td>
-                                    <td>
+                                    <td width="10px">
                                         @can('categories.destroy')
                                         {!! Form::open(['route' => ['categories.destroy', $category->id], 'method' => 'DELETE']) !!}
                                         <button class="btn btn-sm btn-danger" title="Eliminar"><i class="fa fa-trash"></i></button>

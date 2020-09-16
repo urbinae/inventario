@@ -23,7 +23,8 @@ class LoteController extends Controller
     public function index()
     {
         $lotes = Lote::paginate();
-        return view('lotes.index', compact('lotes'));
+        $title = "Lotes";
+        return view('lotes.index', compact('lotes', 'title'));
         //obtener articulos y categorias
         /*$categorias = Categoria::with('articulos')->get();
         return view('...', compact('categorias'));*/
@@ -36,7 +37,8 @@ class LoteController extends Controller
      */
     public function create()
     {
-        return view('lotes.create');
+        $title = "Nuevo Lote/Flete";
+        return view('lotes.create', compact('title'));
     }
 
     /**
@@ -57,14 +59,12 @@ class LoteController extends Controller
         // $lote->costo_variable_cop = 0;//$request->input('costo_fijo_cop');
         $lote->status = 1;
         $lote->slug = $this->create_slug($request->input('name'));
-        
-        if($lote->save()){  
+
+        if ($lote->save()) {
             return redirect()->route('lotes.edit', $lote->id)->with('info', 'lote guardada con éxito');
-        }
-        else{
+        } else {
             return redirect()->route('lotes')->with('info', 'La lote no se guardó');
         }
-        
     }
 
     /**
@@ -75,7 +75,8 @@ class LoteController extends Controller
      */
     public function show(Lote $lote)
     {
-        return view('lotes.show', compact('lote'));
+        $title = "Lote/Flete";
+        return view('lotes.show', compact('lote', 'title'));
     }
 
     /**
@@ -86,7 +87,8 @@ class LoteController extends Controller
      */
     public function edit(Lote $lote)
     {
-        return view('lotes.edit', compact('lote'));
+        $title = "Modificar Lote";
+        return view('lotes.edit', compact('lote', 'title'));
     }
 
     /**
@@ -99,7 +101,7 @@ class LoteController extends Controller
     public function update(Request $request, Lote $lote)
     {
         $lote->update($request->all());
-        return redirect()->route('lotes.edit', $lote->id)->with('info', 'Lote actualizado con éxito');
+        return redirect()->route('lotes.show', $lote->id)->with('info', 'Lote actualizado con éxito');
     }
 
     /**
@@ -116,7 +118,7 @@ class LoteController extends Controller
 
     private function create_slug($string)
     {
-        $slug = preg_replace('/[^A-Za-z0-9-]+/','-',$string);
+        $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $string);
         $slug = strtolower($slug);
         return $slug;
     }

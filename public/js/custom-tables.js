@@ -28,3 +28,13 @@ $('#products-table').DataTable({
     // "responsive": true,
     "language": language
 });
+$('#providers-table').DataTable({
+    // "paging": false,
+    // "lengthChange": true,
+    // "searching": true,
+    // "ordering": true,
+    // "info": true,
+    // "autoWidth": true,
+    // "responsive": true,
+    "language": language
+});

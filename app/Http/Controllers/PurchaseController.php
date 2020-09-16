@@ -20,7 +20,7 @@ class PurchaseController extends Controller
     {
         $purchases = Purchase::paginate();
         $lotes = Lote::paginate();
-        return view('purchases.index', compact('purchases', 'lotes'));
+        return view('purchases.choose', compact('purchases', 'lotes'));
     }
 
     /**

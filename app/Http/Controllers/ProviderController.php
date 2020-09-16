@@ -89,7 +89,7 @@ class ProviderController extends Controller
     public function update(Request $request, Provider $provider)
     {
         $provider->update($request->all());
-        return redirect()->route('providers.edit', $provider->id)->with('info', 'Proveedor actualizado con éxito');
+        return redirect()->route('providers.show', $provider->id)->with('info', 'Proveedor actualizado con éxito');
     }
 
     /**

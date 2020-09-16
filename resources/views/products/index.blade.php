@@ -46,20 +46,20 @@
                                     <td>{{$product->name}}</td>
                                     <td>{{$product->category->name}}</td>
                                     <td>cantidad</td>
-                                    <td>
+                                    <td width="10px">
                                         @can('products.show')
                                         <a href="{{route('products.show', $product->id)}}" title="Ver" class="btn btn-sm btn-info">
                                             <i class="fa fa-eye"></i>
                                         </a>
                                     </td>
-                                    <td>
+                                    <td width="10px">
                                         @endcan
                                         @can('products.edit')
                                         <a href="{{route('products.edit', $product->id)}}" title="Editar" class="btn btn-sm btn-warning">
                                             <i class="fa fa-edit"></i>
                                         </a>
                                     </td>
-                                    <td>
+                                    <td width="10px">
                                         @endcan
                                         @can('products.destroy')
                                         {!! Form::open(['route' => ['products.destroy', $product->id], 'method' => 'DELETE']) !!}
