@@ -14,17 +14,18 @@
 
 <div class="content">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-5 col-md-offset-2">
             <div class="panel panel-default">
-                    <a href="{{route('categories.index')}}" class="btn btn-success btn-sm pull-right">Listar</a>
-                </div>
-                <div class="panel-body">
-                    {!! Form::model($category, ['route' => ['categories.update', $category->id], 'method'=>'PUT']) !!}
-                        @include('categories.partials.form')
-                    {!! Form::close()!!}
-                </div>
+                <a href="{{route('categories.index')}}" class="btn btn-info btn-sm">Listar</a>
+                <hr>
+            </div>
+            <div class="panel-body">
+                {!! Form::model($category, ['route' => ['categories.update', $category->id], 'method'=>'PUT']) !!}
+                @include('categories.partials.form')
+                {!! Form::close()!!}
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

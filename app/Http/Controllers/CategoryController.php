@@ -52,7 +52,7 @@ class CategoryController extends Controller
         $category->slug = $this->create_slug($request->input('name'));
         
         if($category->save()){  
-            return redirect()->route('categories.edit', $category->id)->with('info', 'Categoría guardada con éxito');
+            return redirect()->route('categories.index', $category->id)->with('info', 'Categoría guardada con éxito');
         }
         else{
             return redirect()->route('categories')->with('info', 'La categoría no se guardó');
@@ -92,7 +92,7 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $category->update($request->all());
-        return redirect()->route('categories.edit', $category->id)->with('info', 'Categoría actualizada con éxito');
+        return redirect()->route('categories.index', $category->id)->with('info', 'Categoría actualizada con éxito');
     }
 
     /**

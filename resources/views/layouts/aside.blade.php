@@ -1,16 +1,14 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-        <span class="brand-text font-weight-light">Aplicacion</span>
+    <a href="/" class="brand-link">
+        <span class="brand-text font-weight-light">COPUSD</span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-            </div>
             <div class="info">
                 <a href="#" class="d-block">{{ Auth::user()->name }}</a>
             </div>
@@ -83,46 +81,9 @@
                             </a>
                         </li>
                         @endcan
-                        @can('reportes.index')
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Reportes</p>
-                            </a>
-                        </li>
-                        @endcan
                     </ul>
                 </li>
-                @can('admin')
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fa fa-edit"></i>
-                        <p>Gerencia
-                            <i class="fa fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="pages/forms/general.html" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Usuarios</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/forms/advanced.html" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Proveedores</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/forms/editors.html" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Clientes</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                @endcan
+
                 @can('admin')
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
@@ -134,31 +95,31 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/tables/data.html" class="nav-link">
+                            <a href="#" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
                                 <p>Reportes ventas</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/tables/data.html" class="nav-link">
+                            <a href="#" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
                                 <p>Reportes compras</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/tables/simple.html" class="nav-link">
+                            <a href="#" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
                                 <p>Reportes clientes</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/tables/data.html" class="nav-link">
+                            <a href="#" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
                                 <p>Reportes proveedores</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/tables/data.html" class="nav-link">
+                            <a href="#" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
                                 <p>Reportes empleados</p>
                             </a>
@@ -168,25 +129,39 @@
                 @endcan
                 @can('admin')
                 <li class="nav-header">Administracion</li>
+
+                @endcan
+                @can('admin')
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fa fa-plus-square-o"></i>
-                        <p>
-                            Sistema
+                        <i class="nav-icon fa fa-edit"></i>
+                        <p>Gerencia
                             <i class="fa fa-angle-left right"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/examples/404.html" class="nav-link">
+                            <a href="{{route('users.index')}}" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Errores</p>
+                                <p>Usuarios</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/examples/500.html" class="nav-link">
+                            <a href="{{route('roles.index')}}" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Estado</p>
+                                <p>Roles</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('providers.index')}}" class="nav-link">
+                                <i class="fa fa-circle-o nav-icon"></i>
+                                <p>Proveedores</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-circle-o nav-icon"></i>
+                                <p>Clientes</p>
                             </a>
                         </li>
                     </ul>
