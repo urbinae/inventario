@@ -51,23 +51,22 @@
                                         <a href="{{route('products.show', $product->id)}}" title="Ver" class="btn btn-sm btn-info">
                                             <i class="fa fa-eye"></i>
                                         </a>
+                                        @endcan
                                     </td>
                                     <td width="10px">
-                                        @endcan
                                         @can('products.edit')
                                         <a href="{{route('products.edit', $product->id)}}" title="Editar" class="btn btn-sm btn-warning">
                                             <i class="fa fa-edit"></i>
                                         </a>
+                                        @endcan
                                     </td>
                                     <td width="10px">
-                                        @endcan
                                         @can('products.destroy')
                                         {!! Form::open(['route' => ['products.destroy', $product->id], 'method' => 'DELETE']) !!}
                                         <button class="btn btn-sm btn-danger" title="Eliminar"><i class="fa fa-trash"></i></button>
                                         {!! Form::close() !!}
                                         @endcan
                                     </td>
-
                                 </tr>
                                 @endforeach
                             </tbody>

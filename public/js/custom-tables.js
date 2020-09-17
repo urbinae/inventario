@@ -25,7 +25,7 @@ $('#products-table').DataTable({
     // "ordering": true,
     // "info": true,
     // "autoWidth": true,
-    // "responsive": true,
+    "responsive": true,
     "language": language
 });
 $('#providers-table').DataTable({
@@ -35,6 +35,6 @@ $('#providers-table').DataTable({
     // "ordering": true,
     // "info": true,
     // "autoWidth": true,
-    // "responsive": true,
+    "responsive": true,
     "language": language
 });
